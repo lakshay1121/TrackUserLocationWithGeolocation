@@ -1,90 +1,107 @@
 <html>
+
 <head>
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyDzrqxdPT3aY2_DginxgJFoQvblSSLYTBc"></script>
-<style type="text/css">
+    <script type="text/javascript"
+        src="https://maps.google.com/maps/api/js?key=AIzaSyDzrqxdPT3aY2_DginxgJFoQvblSSLYTBc"></script>
+    <style type="text/css">
+        #map {
+            width: 100%;
+            height: 100%;
+        }
 
- #map { width: 100%;
- 		height: 500px;
-  }
+        body {
+            margin: 0;
+        }
+    </style>
+    <script type="text/javascript">
 
-</style>
-<script type="text/javascript">
+        x = navigator.geolocation;
 
-	x = navigator.geolocation;
+        x.getCurrentPosition(success, failure);
 
-	x.getCurrentPosition(success, failure);
+        function success(position) {
+            var myLat = position.coords.latitude;
+            var myLong = position.coords.longitude;
 
-	function success(position)
-	{
-		var myLat = position.coords.latitude;
-		var myLong = position.coords.longitude;
-
-		var coords = new google.maps.LatLng(myLat, myLong);
+            var coords = new google.maps.LatLng(myLat, myLong);
 
 
-        //variable for parkingspot1
+            //variable for parkingspot1
 
 
 
-        
-       
 
-		var mapOptions = {
 
-			zoom: 9,
-			center: coords,
-			mapTypeId: google.maps.MapTypeId.ROADMAP
 
-		}
+            var mapOptions = {
 
-		var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                zoom: 9,
+                center: coords,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
 
-		var marker = new google.maps.Marker({map:map, position: coords});
-        
+            }
 
-        //lat long for marker 2
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-        var mylat2 = 28.6139;
-        var mylong2 = 77.2090;
+            var marker = new google.maps.Marker({ map: map, position: coords });
 
-        var coords2 = new google.maps.LatLng(mylat2,mylong2);
 
-        var marker2 = new google.maps.Marker({
-            map:map,
-            position:coords2
-        });
+            //lat long for marker 2
 
-        //marker 3
+            var mylat2 = 28.6139;
+            var mylong2 = 77.2090;
 
-        
-        var mylat3 = 28.428715608290542;
-        var mylong3 = 76.86924209754129;
+            var coords2 = new google.maps.LatLng(mylat2, mylong2);
 
-        var coords3 = new google.maps.LatLng(mylat3,mylong3);
+            var marker2 = new google.maps.Marker({
+                map: map,
+                position: coords2,
+                // icon:'parkingpng.png'
 
-        var marker3 = new google.maps.Marker({
-            map:map,
-            position:coords3
-        });
-        
-	
-	}
+            });
 
-	function failure()
-	{
-		
-	}
+            //marker 3
+
+
+            //add marker function
+
+
+
+
+            var mylat3 = 28.428715608290542;
+            var mylong3 = 76.86924209754129;
+
+            var coords3 = new google.maps.LatLng(mylat3, mylong3);
+
+            var marker3 = new google.maps.Marker({
+                map: map,
+                position: coords3
+            });
+
+
+        }
+
+        function failure() {
+
+        }
 
     //adding markers
 
-    
 
-</script>
+
+    </script>
 </head>
+
 <body>
 
- <div id="map"> </div>
+    <div id="map"> </div>
 
 </body>
 
 </html>
+
+
+
+
+
+<!-- previous api link - AIzaSyDzrqxdPT3aY2_DginxgJFoQvblSSLYTBc -->
